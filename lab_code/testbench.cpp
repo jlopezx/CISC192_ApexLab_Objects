@@ -86,55 +86,55 @@ void endAllTests() {
 }
 
 int main() {
-  startTests("ZodiacSign, getName, and getMonth");
+  startTests("ZodiacSign, GetName, and GetMonth");
   ZodiacSign firstSign("this", ZodiacSign::Elements::AIR, "that",
                        ZodiacSign::FEBRUARY);
-  (void)test<string>("this", firstSign.getName());
-  (void)test<ZodiacSign::Months>(ZodiacSign::FEBRUARY, firstSign.getMonth());
-  endTests("ZodiacSign, getName, and getMonth");
+  (void)test<string>("this", firstSign.GetName());
+  (void)test<ZodiacSign::Months>(ZodiacSign::FEBRUARY, firstSign.GetMonth());
+  endTests("ZodiacSign, GetName, and GetMonth");
 
-  startTests("Zodiac, addSign, clear, and populate");
+  startTests("Zodiac, AddSign, Clear, and Populate");
   Zodiac testZodiac;
   (void)test<bool>(false,
-                   testZodiac.addSign("this", ZodiacSign::INVALID_ELEMENT,
+                   testZodiac.AddSign("this", ZodiacSign::INVALID_ELEMENT,
                                       "that", ZodiacSign::FEBRUARY));
-  (void)test<bool>(false, testZodiac.addSign("this", ZodiacSign::NUM_ELEMENTS,
+  (void)test<bool>(false, testZodiac.AddSign("this", ZodiacSign::NUM_ELEMENTS,
                                              "that", ZodiacSign::FEBRUARY));
   (void)test<bool>(
-      false, testZodiac.addSign("this", static_cast<ZodiacSign::Elements>(-1),
+      false, testZodiac.AddSign("this", static_cast<ZodiacSign::Elements>(-1),
                                 "that", ZodiacSign::FEBRUARY));
-  (void)test<bool>(false, testZodiac.addSign("this", ZodiacSign::FIRE, "that",
+  (void)test<bool>(false, testZodiac.AddSign("this", ZodiacSign::FIRE, "that",
                                              ZodiacSign::INVALID_MONTH));
-  (void)test<bool>(false, testZodiac.addSign("this", ZodiacSign::FIRE, "that",
+  (void)test<bool>(false, testZodiacAaddSign("this", ZodiacSign::FIRE, "that",
                                              ZodiacSign::NUM_MONTHS));
   (void)test<bool>(false,
-                   testZodiac.addSign("this", ZodiacSign::FIRE, "that",
+                   testZodiac.AddSign("this", ZodiacSign::FIRE, "that",
                                       static_cast<ZodiacSign::Months>(-1)));
 
-  (void)test<bool>(true, testZodiac.addSign("NewSign", ZodiacSign::FIRE,
+  (void)test<bool>(true, testZodiac.AddSign("NewSign", ZodiacSign::FIRE,
                                             "I made it up", ZodiacSign::MARCH));
 
-  testZodiac.clear();
+  testZodiac.Clear();
 
-  testZodiac.populate();
+  testZodiac.Populate();
   // March was added as part of the populate call so this should fail as a
   // second add attempt
   (void)test<bool>(false,
-                   testZodiac.addSign("NewSign", ZodiacSign::FIRE,
+                   testZodiac.AddSign("NewSign", ZodiacSign::FIRE,
                                       "I made it up", ZodiacSign::MARCH));
   // LEO was added as part of the populate call so this should fail as a second
   // add attempt
   (void)test<bool>(false,
-                   testZodiac.addSign("LEO", ZodiacSign::FIRE, "I made it up",
+                   testZodiac.AddSign("LEO", ZodiacSign::FIRE, "I made it up",
                                       ZodiacSign::MARCH));
-  endTests("Zodiac, addSign, clear, and populate");
+  endTests("Zodiac, AddSign, Clear, and Populate");
 
-  startTests("getMySign, getName");
-  ZodiacSign mySign = testZodiac.getMySign(ZodiacSign::JULY);
-  (void)test<string>("CANCER", mySign.getName());
-  mySign = testZodiac.getMySign(ZodiacSign::NUM_MONTHS);
-  (void)test<string>("None", mySign.getName());
-  endTests("getMySign, getName");
+  startTests("GetMySign, GetName");
+  ZodiacSign mySign = testZodiac.GetMySign(ZodiacSign::JULY);
+  (void)test<string>("CANCER", mySign.GetName());
+  mySign = testZodiac.GetMySign(ZodiacSign::NUM_MONTHS);
+  (void)test<string>("None", mySign.GetName());
+  endTests("GetMySign, GetName");
 
   endAllTests();
 
