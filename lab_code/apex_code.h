@@ -29,7 +29,7 @@ public:
 		NUM_MONTHS
 	};
 
-	string Months_Strings[NUM_MONTHS] = {"INVALID", "January", "February", 
+	string monthStrings[NUM_MONTHS] = {"INVALID", "January", "February", 
 		"March", "April", "May", "June", "July", "August", "September",
 	       	"October", "November", "December"};
 
@@ -43,7 +43,7 @@ public:
 		NUM_ELEMENTS
 	};
 
-	string Elements_Strings[NUM_ELEMENTS] = {"INVALID", "FIRE", "WATER",
+	string elementsStrings[NUM_ELEMENTS] = {"INVALID", "FIRE", "WATER",
 	       	"EARTH", "AIR"};
 
 	//
@@ -54,18 +54,18 @@ public:
 	// Add getters
 	//
 
-	void Print();
+	void print();
 private:
 	ZodiacSign();
 
-	string Name;
-	Months Month;
-	Elements Element;
-	string Description;
+	string name;
+	Months month; 			// enum type
+	Elements element;		// enum type
+	string description;
 };
 
 //
-// Add Zodiac declartion
+// Add Zodiac class declaration
 //
 
 #endif //APEXLAB_APEX_CODE_H
