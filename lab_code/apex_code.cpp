@@ -2,14 +2,14 @@
 //
 #include "apex_code.h"
 
-void ZodiacSign::print() {
+void ZodiacSign::Print() {
   cout << name << endl;
   cout << "\tMonth: " << monthStrings[month] << endl;
   cout << "\tElement: " << elementsStrings[element] << endl;
   cout << "\t" << description << endl;
 }
 
-void Zodiac::populate() {
+void Zodiac::Populate() {
   AddSign("CAPRICORN", ZodiacSign::Elements::EARTH, "The mountain goat",
           ZodiacSign::Months::JANUARY);
   AddSign("AQUARIUS", ZodiacSign::Elements::AIR, "The water-bearer",
