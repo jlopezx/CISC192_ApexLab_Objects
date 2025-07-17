@@ -105,7 +105,7 @@ int main() {
                                 "that", ZodiacSign::FEBRUARY));
   (void)test<bool>(false, testZodiac.AddSign("this", ZodiacSign::FIRE, "that",
                                              ZodiacSign::INVALID_MONTH));
-  (void)test<bool>(false, testZodiacAaddSign("this", ZodiacSign::FIRE, "that",
+  (void)test<bool>(false, testZodiac.AddSign("this", ZodiacSign::FIRE, "that",
                                              ZodiacSign::NUM_MONTHS));
   (void)test<bool>(false,
                    testZodiac.AddSign("this", ZodiacSign::FIRE, "that",
